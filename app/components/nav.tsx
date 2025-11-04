@@ -12,7 +12,7 @@ const Nav = () => {
       {/* Desktop Menu */}
       <div className="hidden md:flex gap-6 items-center p-4 ">
         <Link
-          href="/"
+          href="/home"
           className="text-gray-800  hover:text-blue-600 transition-colors duration-300"
         >
           Home
@@ -67,7 +67,7 @@ const Nav = () => {
                 <X size={28} />
               </button>
               <Link
-                href="/"
+                href="/home"
                 onClick={() => setMenuOpen(false)}
                 className="text-white hover:text-blue-600 transition-colors duration-300"
               >
