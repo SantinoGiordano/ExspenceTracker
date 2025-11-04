@@ -1,5 +1,7 @@
 'use client'
+import { useUserStore } from "@/app/store/store";
 import { useEffect, useState } from "react";
+
 
 interface Purchase {
   itemId: string;
@@ -16,30 +18,28 @@ interface UserData {
 }
 
 export default function Wallet() {
-  const [users, setUsers] = useState<UserData[]>([]);
+  const { username } = useUserStore();
+  const [user, setUser] = useState<UserData | null>(null);
 
   useEffect(() => {
-    async function fetchUsers() {
-      const res = await fetch("http://localhost:8080/api/users");
-      const data = await res.json();
-      setUsers(data);
-    }
-    fetchUsers();
-  }, []);
+    if (!username) return;
 
-  if (users.length === 0) return <div>Loading...</div>;
+    async function fetchUser() {
+      const res = await fetch(`http://localhost:8080/api/user/${username}`);
+      const data = await res.json();
+      setUser(data);
+    }
+    fetchUser();
+  }, [username]);
+
+  if (!username) return <div>Please log in</div>;
+  if (!user) return <div>Loading...</div>;
 
   return (
     <main className="flex flex-col items-center justify-between p-24">
-      <h1 className="p-10 text-green-500">Wallets</h1>
-
-      {users.map((user) => (
-        <div key={user.id} className="p-5 border-b border-gray-600 w-80">
-          <p className="text-xl font-bold">{user.username}</p>
-          <p>💰 Money: ${user.money}</p>
-          <p>Weekly Budget: ${user.budgetPerWeek}</p>
-        </div>
-      ))}
+      <h1 className="p-10 text-green-500">My Wallet</h1>
+      <div className="text-xl p-4">💰 Balance: ${user.money}</div>
+      <div className="text-lg p-4">Weekly Budget: ${user.budgetPerWeek}</div>
     </main>
   );
 }
