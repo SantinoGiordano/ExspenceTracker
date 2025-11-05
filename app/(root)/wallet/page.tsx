@@ -63,7 +63,7 @@ export default function Wallet() {
       return;
     }
 
-    setSuccess("💰 Money added successfully!");
+    setSuccess("Money added successfully!");
     setAmount("");
 
     // Refresh user data
@@ -80,7 +80,7 @@ export default function Wallet() {
 
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8 mb-8 border border-green-200">
         <div className="flex justify-between items-center mb-4">
-          <span className="text-xl font-semibold text-gray-700">💰 Balance</span>
+          <span className="text-xl font-semibold text-gray-700">Balance</span>
           <span className="text-2xl font-bold text-green-600">${user.money}</span>
         </div>
         <div className="flex justify-between items-center">
@@ -110,9 +110,7 @@ export default function Wallet() {
         {error && <p className="text-red-500 text-center mt-2">{error}</p>}
         {success && <p className="text-green-600 text-center mt-2">{success}</p>}
       </form>
-
-      {/* Optional: Purchase history section */}
-      {user.purchases.length > 0 && (
+      {/* {user.purchases.length > 0 && (
         <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-6 border border-green-200 mt-6">
           <h2 className="text-xl font-semibold mb-4 text-gray-700">Purchase History</h2>
           <ul className="flex flex-col gap-3">
@@ -127,7 +125,7 @@ export default function Wallet() {
             ))}
           </ul>
         </div>
-      )}
+      )} */}
     </main>
   );
 }
