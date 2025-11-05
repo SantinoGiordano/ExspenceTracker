@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useUserStore } from "./store/store";
+import Link from "next/link";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
@@ -34,12 +35,13 @@ export default function LoginPage() {
     localStorage.setItem("username", data.username);
     localStorage.setItem("userId", data.userId);
 
-    router.push("/wallet"); // navigate to wallet page
+    router.push("/home"); // navigate to wallet page
   }
 
   return (
     <main className="flex flex-col items-center justify-center h-screen">
-      <h1 className="text-3xl mb-6 text-green-500">Sign In</h1>
+      <h1 className="text-3xl mb-6 text-green-600">Log In</h1>
+      <h3 className=" mb-6 text-green-500"><Link href="/signup">Sign Up</Link></h3>
 
       <form onSubmit={handleLogin} className="flex flex-col w-80 space-y-4">
         <input
