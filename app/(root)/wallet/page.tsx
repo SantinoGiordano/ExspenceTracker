@@ -35,8 +35,12 @@ export default function Wallet() {
   }, [username]);
 
   if (!username) return <div className="text-center mt-20 text-red-500 text-xl">Please log in</div>;
-  if (!user) return <span className="loading loading-spinner loading-xs"></span>
-  
+  if (!user)
+  return (
+    <div className="flex items-center justify-center h-screen">
+      <span className="loading loading-spinner loading-xs"></span>
+    </div>
+  );
 
   async function handleAddMoney(e: React.FormEvent) {
     e.preventDefault();
