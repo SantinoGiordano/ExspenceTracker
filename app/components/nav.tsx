@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import React, { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, User, X } from "lucide-react";
 import { useUserStore } from "../store/store";
 
 
@@ -45,7 +45,10 @@ const Nav = () => {
       {/* Right: Username (Desktop only) */}
       {username && (
         <div className="hidden md:block text-gray-700 font-medium ml-auto pr-4">
-          Welcome, <span className="text-blue-600 font-semibold">{username}</span>
+         <span className="text-blue-400 font-semibold flex items-center gap-1">
+      {username}
+      <User className="w-4 h-4" />
+    </span>
         </div>
       )}
 
@@ -107,12 +110,17 @@ const Nav = () => {
                 Wallet
               </Link>
 
-              {username && (
-                <div className="pt-4 text-sm text-gray-300 border-t border-gray-700">
-                  Logged in as{" "}
-                  <span className="text-blue-400 font-semibold">{username}</span>
-                </div>
-              )}
+{username && (
+  <div className="pt-4 text-sm text-gray-300 border-t border-gray-700 flex items-center justify-center gap-1">
+    <span>Logged in as</span>
+    <span className="text-blue-400 font-semibold flex items-center gap-1">
+      {username}
+      <User className="w-4 h-4" />
+    </span>
+  </div>
+)}
+
+
             </div>
           </div>
         </>
