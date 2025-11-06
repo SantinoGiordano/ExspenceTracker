@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useUserStore } from "./store/store";
 import Link from "next/link";
+import { API_ROUTES } from "./utils/routes";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
@@ -15,7 +16,7 @@ export default function LoginPage() {
     e.preventDefault();
     setError("");
 
-    const res = await fetch("http://localhost:8080/api/login", {
+    const res = await fetch(`${API_ROUTES}/api/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),

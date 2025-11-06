@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { API_ROUTES } from '@/app/utils/routes';
 
 export default function SignupPage() {
   const [username, setUsername] = useState('');
@@ -20,7 +21,7 @@ export default function SignupPage() {
       return;
     }
 
-    const res = await fetch('http://localhost:8080/api/signup', {
+    const res = await fetch(`${API_ROUTES}/api/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password }),

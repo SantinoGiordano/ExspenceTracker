@@ -1,5 +1,6 @@
 "use client";
 import { useUserStore } from "@/app/store/store";
+import { API_ROUTES } from "@/app/utils/routes";
 import { useEffect, useState } from "react";
 
 interface Purchase {
@@ -27,7 +28,7 @@ export default function Wallet() {
     if (!username) return;
 
     async function fetchUser() {
-      const res = await fetch(`http://localhost:8080/api/user/${username}`);
+      const res = await fetch(`${API_ROUTES}/api/user/${username}`);
       const data = await res.json();
       setUser(data);
     }
@@ -35,12 +36,8 @@ export default function Wallet() {
   }, [username]);
 
   if (!username) return <div className="text-center mt-20 text-red-500 text-xl">Please log in</div>;
-  if (!user)
-  return (
-    <div className="flex items-center justify-center h-screen">
-      <span className="loading loading-spinner loading-xs"></span>
-    </div>
-  );
+  if (!user) return <span className=" text-center loading loading-spinner loading-xs"></span>
+  
 
   async function handleAddMoney(e: React.FormEvent) {
     e.preventDefault();
