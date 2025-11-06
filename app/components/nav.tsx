@@ -11,7 +11,8 @@ const Nav = () => {
   const { username } = useUserStore(); // get username from Zustand
 
   return (
-    <nav className="bg-white mx-auto mt-4 w-[90%] max-w-4xl px-6 py-3 flex items-center justify-between shadow-sm rounded-xl">
+    <div className=" pt-5">
+    <nav className="bg-white mx-auto w-[90%] max-w-4xl px-6 py-3 flex items-center justify-between shadow-sm rounded-xl">
       {/* Left: Desktop Menu */}
       <div className="hidden md:flex gap-6 items-center p-4">
         <Link
@@ -117,6 +118,7 @@ const Nav = () => {
         </>
       )}
     </nav>
+    </div>
   );
 };
 
