@@ -11,7 +11,7 @@ const Nav = () => {
   const { username } = useUserStore(); // get username from Zustand
 
   return (
-    <div className=" pt-5">
+    <div className=" pt-5 pb-5">
     <nav className="bg-white mx-auto w-[90%] max-w-4xl px-6 py-3 flex items-center justify-between shadow-sm rounded-xl">
       {/* Left: Desktop Menu */}
       <div className="hidden md:flex gap-6 items-center p-4">
@@ -45,9 +45,9 @@ const Nav = () => {
       {/* Right: Username (Desktop only) */}
       {username && (
         <div className="hidden md:block text-gray-700 font-medium ml-auto pr-4">
-         <span className="text-blue-400 font-semibold flex items-center gap-1">
+         <span className="text-green-600 font-semibold flex items-center gap-1">
       {username}
-      <User className="w-4 h-4" />
+      <User className="w-6 h-6" />
     </span>
         </div>
       )}
