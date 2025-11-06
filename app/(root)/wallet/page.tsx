@@ -35,7 +35,8 @@ export default function Wallet() {
   }, [username]);
 
   if (!username) return <div className="text-center mt-20 text-red-500 text-xl">Please log in</div>;
-  if (!user) return <div className="text-center mt-20 text-gray-500 text-xl">Loading...</div>;
+  if (!user) return <span className="loading loading-spinner loading-xs"></span>
+  
 
   async function handleAddMoney(e: React.FormEvent) {
     e.preventDefault();
@@ -74,7 +75,7 @@ export default function Wallet() {
 
   return (
     <main className="flex flex-col items-center justify-start min-h-screen bg-gradient-to-b from-green-50 to-green-100 py-16 px-4">
-      <h1 className="text-4xl font-bold text-green-700 mb-10 shadow-sm">
+      <h1 className="text-4xl font-bold text-green-700 mb-10">
         My Wallet
       </h1>
 
