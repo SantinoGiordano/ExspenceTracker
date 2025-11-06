@@ -7,7 +7,7 @@ export default function AuthenticatedLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div>
+    <div className="bg-green-50">
       <Nav />
       {children}
     </div>
