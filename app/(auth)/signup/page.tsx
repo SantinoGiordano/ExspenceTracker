@@ -76,7 +76,7 @@ export default function SignupPage() {
       <p className="mt-6 text-gray-600">
         Already have an account?{" "}
         <button
-          className="text-green-600 underline"
+          className="text-green-600 underline hover:cursor-pointer" 
           onClick={() => router.push('/')}
         >
           Log in
