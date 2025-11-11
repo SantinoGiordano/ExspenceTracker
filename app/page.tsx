@@ -66,7 +66,7 @@ export default function LoginPage() {
        Not singed up yet?{" "}
         <button
           className="text-green-600 underline hover:cursor-pointer"
-          onClick={() => router.push("/")}
+          onClick={() => router.push("/signup")}
         >
           Sign up
         </button>
