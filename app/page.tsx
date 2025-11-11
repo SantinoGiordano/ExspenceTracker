@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useUserStore } from "./store/store";
@@ -42,8 +42,6 @@ export default function LoginPage() {
   return (
     <main className="flex flex-col items-center justify-center h-screen">
       <h1 className="text-3xl mb-6 text-green-600">Log In</h1>
-      <h3 className=" mb-6 text-green-500"><Link href="/signup">Sign Up</Link></h3>
-
       <form onSubmit={handleLogin} className="flex flex-col w-80 space-y-4">
         <input
           type="text"
@@ -60,9 +58,19 @@ export default function LoginPage() {
           className="input input-bordered"
         />
 
-        <button type="submit" className="btn btn-primary">Login</button>
+        <button type="submit" className="btn btn-primary hover:cursor-pointer">
+          Login
+        </button>
       </form>
-
+      <p className="mt-6 text-gray-600">
+       Not singed up yet?{" "}
+        <button
+          className="text-green-600 underline hover:cursor-pointer"
+          onClick={() => router.push("/")}
+        >
+          Sign up
+        </button>
+      </p>
       {error && <p className="text-red-500 mt-4">{error}</p>}
     </main>
   );
