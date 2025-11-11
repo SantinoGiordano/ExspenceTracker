@@ -47,7 +47,7 @@ const Nav = () => {
         <div className="hidden md:block text-gray-700 font-medium ml-auto pr-4">
          <span className="text-green-600 font-semibold flex items-center gap-1">
       {username}
-      <User className="w-6 h-6" />
+      <User className="w-6 h-6" /> | <Link href={"/"}>Sign Out</Link>
     </span>
         </div>
       )}
