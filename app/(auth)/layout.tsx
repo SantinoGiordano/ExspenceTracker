@@ -9,8 +9,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <body className="__variable_188709 __variable_9a8899 antialiased">
+    <div className="">
       {children}
-    </body>
+    </div>
   );
 }
